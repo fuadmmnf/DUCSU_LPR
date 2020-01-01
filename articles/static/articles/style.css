@@ -1,0 +1,33 @@
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url(img/bangladesh.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+hr.lines {
+    border-top: 3px solid;
+    width: 100%;
+}
+
+hr.boldline {
+    border-top: 4px solid black;
+    width: 70%;
+}
+
+body, wrapper {
+    font-family: Georgia, serif;
+    min-height:100vh;
+    text-align: justify;
+}
+
+i{
+    font-family: "Californian FB", AppleMyungjo;
+}
+
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+}

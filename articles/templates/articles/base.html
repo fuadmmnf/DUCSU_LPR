@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>DUCSU LPR</title>
+
+    {% block meta_tags %}
+
+    {% endblock %}
+    <meta name="description" content="Dhaka University Central Students' Union Law and Politics Review">
+    <meta name="keywords" content="DUCSU, DU, LPR, Law, Politics, Review, Dhaka University, Politics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mrinmoy S. Roddur, Mridha Md. Nafis Fuad">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no"/>
+    <title>Welcome to your school name</title>
+
+    <!-- smart phone css  -->
+    <link href="assets/phone.css" rel="stylesheet" type="text/css"
+          media="all and (min-width: 0px) and (max-width: 480px)"/>
+
+    <!-- Tablet -->
+    <link href="assets/tablet.css" rel="stylesheet" type="text/css"
+          media="all and (min-width: 481px) and (max-width: 800px)"/>
+
+    <!-- Desktop -->
+    <link href="assets/desktop.css" rel="stylesheet" type="text/css" media="only screen and (min-width:801px)">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/style.css' %}">
+
+
+    <!-- Bootstrap CSS>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"-->
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <!-- Custom icon font>
+    <link rel="stylesheet" href="css/fontastic.css"-->
+    <!-- Google fonts - Open Sans>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"-->
+    <!-- Fancybox>
+    <link rel="stylesheet" href="vendor/@fancyapps/fancybox/jquery.fancybox.min.css"-->
+    <!-- theme stylesheet>
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet"-->
+    <!-- Custom stylesheet - for your changes>
+    <link rel="stylesheet" href="css/custom.css"-->
+    <!-- Favicon>
+    <link rel="shortcut icon" href="favicon.png"-->
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4B0000">
+    <div class="container">
+        <!--a class="navbar-brand" href="#">DUCSU LPR</a-->
+        <div class="navbar-brand">
+            <a href="{% url 'index_page' %}">
+                <img src="{% static 'articles/img/logo.png' %}">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index_page' %}">Home</a>
+                    <span class="sr-only">(current)</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_list' 'journal' %}">Journal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_list' 'blog' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_list' 'bookreview' %}">Book Review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_list' 'DUThinks' %}">DU Thinks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_list' 'LPRNews' %}">LPR News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'submission' %}">Submission</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'call_for_paper' %}">Call For Paper</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+<footer class="container-fluid page-footer font-small text-center text-light mt-5"
+        style="background-color: #4B0000">
+    <div class="row pt-5">
+        <div class="col-sm-5">
+            <hr class="lines" style="color:whitesmoke">
+        </div>
+        <div class="col-sm-2 text-center bg-light display-4 text-dark">
+            <h4>DUCSU LPR</h4>
+        </div>
+        <div class="col-sm-5">
+            <hr class="lines" style="color:whitesmoke">
+        </div>
+    </div>
+    <div class="row pb-2 pt-3">
+        <div class="col-md-4">
+            <a href="https://www.facebook.com/SecretaryInternationalAffairsDUCSU/" target="_blank"
+               style="color:white;text-decoration: none;"><i class="fa fa-facebook p-1"></i> <i>Facebook</i></a>
+        </div>
+        <div class="col-md-4">
+            <!--p><i>JOIN OUR MAILING LIST</i></p-->
+        </div>
+        <div class="col-md-4">
+            <p><i class="fa fa-twitter p-1"></i> <i>Twitter</i></p>
+        </div>
+    </div>
+    <div class="footer-copyright text-center pb-3">
+        © DUCSU LAW & POLITICS REVIEW @ 2019
+    </div>
+</footer>
+</body>
+
+</html>

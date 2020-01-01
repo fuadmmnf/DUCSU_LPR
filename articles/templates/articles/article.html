@@ -1,0 +1,106 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+{% block meta_tags %}
+    <meta property="og:title" content="{{ article.title }}">
+    <meta property="og:description" content="{{ article.abstract|safe }}">
+    <meta property="og:image" content="{{ article.image_link }}">
+    <meta property="og:url" content="{{ url }}">
+{% endblock %}
+
+{% block body %}
+    <br class="p-5">
+    <br class="p-5">
+    <br class="p-5">
+    <br class="p-5">
+    <div class="row  m-5">
+        <div class="col-sm-5">
+            <hr class="lines">
+        </div>
+        <div class="col-sm-2 text-center bg-dark display-4 text-light">
+            <h1>DUCSU LPR</h1>
+        </div>
+        <div class="col-sm-5">
+            <hr class="lines">
+        </div>
+    </div>
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h1 class="display-1 text-center p-4" style=" font-size: 35px">
+                    {{ article.title }}
+                </h1>
+            </div>
+        </div>
+        <hr class="hr-text p-2" data-content="ⅹ">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <p class="text-center pb-4"><i>
+                    <img src='{{ article.image_link }}' class="img-fluid" alt="Responsive image">
+                    <br><br>
+
+                    <a href="{% url 'show_list' article.get_article_type_display|lower|cut:' ' %}" class="text-dark"
+                       style="text-decoration-color: black;">
+                        {{ article.get_article_type_display }}
+                    </a>
+                    by
+                    {% for j in article.authors.all %}
+                        {% if not forloop.first and forloop.last %} &
+                        {% elif not forloop.first %},
+                        {% endif %}
+                        <a href="{% url 'show_author' j.id %}" class="text-dark" style="text-decoration-color: black;">
+                            {{ j.name }}
+                        </a>
+                    {% endfor %}
+                </i></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+
+
+            <div class="col-sm-1">
+                <p><i class="fa fa-calendar"></i> {{ article.created_date|date:"M d, Y" }}</p>
+                {% if article.article_type == 'J' %}
+                    <p><i class="fa fa-file"></i><a href="{{ article.pdf }}" class="text-dark"
+                                                    style="text-decoration-color: black;"> Read Article</a></p>
+                {% endif %}
+
+            </div>
+            <div class="col-sm-5" style="">
+{#                {% if article.article_type == 'N' or article.article_type == 'L' %}#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                          <object data="{{article.youtube_link}}"></object>#}
+{#                        <!--<iframe src="{{article.youtube_link}}" frameborder="0" allowfullscreen></iframe>-->#}
+{##}
+{#                    </div>#}
+{#                    <br><br>#}
+{##}
+{#                {% endif %}#}
+                {{ article.abstract|safe }}
+                <br><br>
+
+                <p>
+                    <strong>Tags : </strong>
+                    {% for i in article.tags.all %}
+                        {% if not forloop.first %}, {% endif %}
+                        <a href="{% url 'show_tag' i.id %}" class="text-dark" style="text-decoration-color: black;">
+                            {{ i.word }} </a>
+                    {% endfor %}
+                </p>
+                <br><br><br>
+                {% for j in article.authors.all %}
+                    {% if not forloop.first and forloop.last %} &
+                    {% elif not forloop.first %},
+                    {% endif %}
+                    <p><i>{{ j.bio|safe }}</i></p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

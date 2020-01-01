@@ -1,0 +1,12 @@
+<p>SOME PARAGRAPH TEXT</p>
+
+<div class="videoWrapper">
+    <iframe width="560" height="349" src="http://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>SOME PARAGRAPH TEXT</p>
+
+
+<p> you can find the detailed report of the event
+<a href = "DRIVE_LINK" target="_blank">here</a>
+</p>
