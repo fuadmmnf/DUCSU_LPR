@@ -1,12 +1,16 @@
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.http import HttpResponse
-from .models import Article, Author, Tag
+from .models import Article, Author, Tag, ImageUrl
 
 # Create your views here.
 
 def index(request):
+    cover_bgImage = ImageUrl.objects.first();
     latest_article_list = Article.objects.order_by('-created_date')[:10]
-    context = {'latest_article_list': latest_article_list}
+    context = {
+        'latest_article_list': latest_article_list,
+        'bg_image': cover_bgImage,
+    }
     return render(request, 'articles/index.html', context)
 
 

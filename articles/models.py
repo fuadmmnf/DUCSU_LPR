@@ -3,6 +3,11 @@ from django.utils import timezone
 
 # Create your models here.
 
+class ImageUrl(models.Model):
+    image_link = models.URLField(max_length=500, null=False, blank=False)
+
+
+
 class Author(models.Model):
     name = models.CharField(max_length=200)
     bio = models.TextField()
@@ -22,6 +27,7 @@ class Article(models.Model):
         ('R', 'Book Review'),
         ('L', 'DUThinks'),
         ('N', 'LPRNews'),
+        ('C', 'Call For Paper'),
     )
     title = models.CharField(max_length=200)
     abstract = models.TextField()

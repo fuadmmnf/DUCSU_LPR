@@ -3,7 +3,7 @@
 
 {% block meta_tags %}
     <meta property="og:title" content="{{ article.title }}">
-    <meta property="og:description" content="{{ article.abstract|safe }}">
+    <meta property="og:description" content="{{ article.abstract|slice:"3:"| truncatewords:15| safe }}">
     <meta property="og:image" content="{{ article.image_link }}">
     <meta property="og:url" content="{{ url }}">
 {% endblock %}
