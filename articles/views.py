@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render, render_to_response
+from django.shortcuts import get_object_or_404, render, render_to_response, redirect
 from django.http import HttpResponse
 from .models import Article, Author, Tag, ImageUrl
 
@@ -21,6 +21,17 @@ def showArticle(request, article_id):
                       'article': article,
                       'url': 'http://ducsulpr.du.ac.bd/article/'+str(article_id),
                    })
+
+def shareArticle(request, article_id, share_type):
+    article = get_object_or_404(Article, pk=article_id)
+    url = 'http://ducsulpr.du.ac.bd/article/'+str(article_id)
+    article.share_count = article.share_count + 1
+    article.save()
+
+    if share_type == 'facebook':
+        return redirect('http://facebook.com/sharer.php?u='+url)
+    elif share_type == 'twitter':
+        return redirect('http://twitter.com/share?&url='+url)
 
 
 def showList(request, art_type):

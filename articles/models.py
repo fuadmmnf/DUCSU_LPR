@@ -30,6 +30,7 @@ class Article(models.Model):
         ('C', 'Call For Paper'),
     )
     title = models.CharField(max_length=200)
+    share_count = models.IntegerField(default=0)
     abstract = models.TextField()
     article_type = models.CharField(max_length=1, choices=TYPE)
     created_date = models.DateTimeField(default=timezone.now)
