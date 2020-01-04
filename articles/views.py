@@ -36,6 +36,9 @@ def showList(request, art_type):
     elif(art_type == "DUThinks"):
         art_list = Article.objects.filter(article_type='L').order_by('-created_date')
         return render(request, 'articles/content.html', {'art_list': art_list, 'art_type' : 'DU Thinks'})
+    elif(art_type == "call_for_paper"):
+        art_list = Article.objects.filter(article_type='C').order_by('-created_date')
+        return render(request, 'articles/content.html', {'art_list': art_list, 'art_type' : 'Call For Papers'})
 
     elif(art_type == "LPRNews"):
         art_list = Article.objects.filter(article_type='N').order_by('-created_date')
